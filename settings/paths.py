@@ -1,8 +1,9 @@
 from genericpath import isfile
+from json import dump
 from os import getcwd, listdir, mkdir
 from os.path import join as path_join
+
 from .variables import DEFAULT_SETTINGS
-from json import dump
 
 path = getcwd()
 path_app_win = path_join(path, 'CoeffDynamicViscosity.exe')

@@ -1,7 +1,7 @@
+from json import dump, load
 from logging import INFO, Formatter, getLogger
 from logging.handlers import RotatingFileHandler
 from os.path import join as path_join
-from json import dump, load
 
 from .paths import path_to_logs_dir, path_to_settings
 

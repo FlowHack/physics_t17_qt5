@@ -1,13 +1,15 @@
-from settings import (LOGGER, check_ui_in_py, path_to_icos, get_settings,
-                      write_settings)
+import gc
+from sys import exit as exit_ex
+from sys import platform as sys_platform
+from time import sleep
 from tracemalloc import get_traced_memory
 from tracemalloc import start as trace_start
-from sys import platform as sys_platform
+
 from PyQt5 import QtCore, QtGui, QtWidgets
-from time import sleep
-import gc
+
 from master_windows import App
-from sys import exit as exit_ex
+from settings import (LOGGER, check_ui_in_py, get_settings, path_to_icos,
+                      write_settings)
 
 
 class StartApp:
@@ -92,7 +94,9 @@ class StartApp:
         h = pixmap.size().height()
 
         clipPath = QtGui.QPainterPath()
-        clipPath.addRoundedRect(QtCore.QRectF(0, 0, w, h), w//6, h//6)
+        clipPath.addRoundedRect(
+            QtCore.QRectF(0, 0, w, h), w // 6, h // 6
+        )
 
         qp = QtGui.QPainter(pixmap)
         qp.setClipPath(clipPath)

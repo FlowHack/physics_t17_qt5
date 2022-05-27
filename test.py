@@ -399,6 +399,7 @@ from OpenGL.GLU import *
 from OpenGL.GLUT import *
 from PyQt5.QtWidgets import QOpenGLWidget
 
+
 def init():
     global xrot         # Величина вращения по оси x
     global yrot         # Величина вращения по оси y
@@ -448,7 +449,7 @@ def draw():
     global greencolor
     global water_color
 
-    glClear(GL_COLOR_BUFFER_BIT)                                # Очищаем экран и заливаем серым цветом
+    glClear(GL_COLOR_BUFFER_BIT)                           # Очищаем экран и заливаем серым цветом
     glPushMatrix()                                              # Сохраняем текущее положение "камеры"
     glRotatef(-5, 1.0, 0.0, 0.0)                              # Вращаем по оси X на величину xrot
     glRotatef(yrot, 0.0, 1.0, 0.0)                              # Вращаем по оси Y на величину yrot

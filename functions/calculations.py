@@ -202,3 +202,13 @@ def calculate_viscosity(p_ball: float, p_water: float, radius: float,
     logger.info(f'{viscosity=}')
 
     return fabs(viscosity)
+
+
+def splitting_number(number):
+    result = []
+
+    for i in range(1, number):
+        for k in range(1, 11):
+            result.append((i - 1) + (k / 10))
+
+    return result[::-1], len(result)

@@ -1,10 +1,11 @@
-from re import I
+from multiprocessing.sharedctypes import Value
 from PyQt5 import QtGui, QtWidgets
 from bin.MainWindowUI import Ui_MainWindow
+from bin import MessageBox
+from functions.calculations import splitting_number
 from settings import path_to_icos, LOGGER
 from functions import (set_validator_double, all_edits, calculate_experiment,
-                       calculate_phenomen, OpenGLDraw)
-from time import sleep
+                       calculate_phenomen, OpenGlWindow)
 
 
 class App(QtWidgets.QMainWindow):
@@ -29,38 +30,46 @@ class App(QtWidgets.QMainWindow):
         self.setWindowIcon(icon)
         self.ui.frame_1.setVisible(False)
 
-        OpenGLDraw(self.ui.openGL_container)
-
         set_validator_double(list(self.edits.values()))
         self.ui.btn_simulation.clicked.connect(self.simulation)
+        self.ui.btn_restart.clicked.connect(self.clear)
 
     def simulation(self):
         rad_exp = self.ui.rad_simulation_exp.isChecked()
 
         if rad_exp:
-            p_ball =  \
-                float(
-                    self.edits[
-                        'edit_abs_ball_density'
-                    ].text().replace(',', '.')
+            try:
+                p_ball =  \
+                    float(
+                        self.edits[
+                            'edit_abs_ball_density'
+                        ].text().replace(',', '.')
+                    )
+                p_water =  \
+                    float(
+                        self.edits[
+                            'edit_abs_liquid_density'
+                        ].text().replace(',', '.')
+                    )
+                height =  \
+                    float(
+                        self.edits['edit_abs_height'].text().replace(',', '.')
+                    ) / 10 / 100
+                radius =  \
+                    float(
+                        self.edits[
+                            'edit_abs_diameter'
+                        ].text().replace(',', '.')
+                    ) / 10 / 100 / 2
+                viscosity = float(
+                    self.edits['edit_abs_viscosity'].text().replace(',', '.')
                 )
-            p_water =  \
-                float(
-                    self.edits[
-                        'edit_abs_liquid_density'
-                    ].text().replace(',', '.')
-                )
-            height =  \
-                float(
-                    self.edits['edit_abs_height'].text().replace(',', '.')
-                ) / 10 / 100
-            radius =  \
-                float(
-                    self.edits['edit_abs_diameter'].text().replace(',', '.')
-                ) / 10 / 100 / 2
-            viscosity = float(
-                self.edits['edit_abs_viscosity'].text().replace(',', '.')
-            )
+            except ValueError:
+                MessageBox(
+                    title='Ошибка', text='Ошибка в значениях',
+                    msg='Неверные значения для эксперимента'
+                ).showerror()
+                return
 
             res_experiment = calculate_experiment(
                 p_ball=p_ball, p_water=p_water, radius=radius,
@@ -70,11 +79,19 @@ class App(QtWidgets.QMainWindow):
             if res_experiment is None:
                 return
 
-            self.ui.openGL_container.clearMask()
+            height_for_simulation = int(round(height * 100, 0))
+            time_step = res_experiment['avg_time']
 
-            OpenGLDraw(
-                widget=self.ui.openGL_container,
-                height=55, need_ball=True
+            if time_step < 12:
+                steps = range(height_for_simulation + 1)[::-1]
+                count_steps = len(steps)
+            else:
+                steps, count_steps = splitting_number(height_for_simulation)
+
+            time_step = time_step / count_steps * 1000000000
+
+            OpenGlWindow(
+                numbers=steps, time=time_step, count_simulations=3
             )
 
             self.ui.edit_viscosity_1.setText(str(res_experiment['viscosity1']))
@@ -108,27 +125,58 @@ class App(QtWidgets.QMainWindow):
                 str(res_experiment['radius'])
             )
         else:
-            p_ball =  \
-                float(self.edits['edit_ball_density'].text().replace(',', '.'))
-            p_water =  \
-                float(
-                    self.edits['edit_liquid_density'].text().replace(',', '.')
-                )
-            radius =  \
-                float(
-                    self.edits['edit_diameter_ball'].text().replace(',', '.')
-                ) / 10 / 100 / 2
-            viscosity =  \
-                float(
-                    self.edits[
-                        'edit_dynamic_viscosity_coeff'
-                    ].text().replace(',', '.')
-                )
+            try:
+                p_ball =  \
+                    float(
+                        self.edits[
+                            'edit_ball_density'
+                        ].text().replace(',', '.')
+                    )
+                p_water =  \
+                    float(
+                        self.edits[
+                            'edit_liquid_density'
+                        ].text().replace(',', '.')
+                    )
+                radius =  \
+                    float(
+                        self.edits[
+                            'edit_diameter_ball'
+                        ].text().replace(',', '.')
+                    ) / 10 / 100 / 2
+                viscosity =  \
+                    float(
+                        self.edits[
+                            'edit_dynamic_viscosity_coeff'
+                        ].text().replace(',', '.')
+                    )
+            except ValueError:
+                MessageBox(
+                    title='Ошибка', text='Ошибка в значениях',
+                    msg='Неверные значения для симуляции'
+                ).showerror()
+                return
 
             res_phenomen = calculate_phenomen(
                 radius=radius, p_ball=p_ball, p_water=p_water,
                 viscosity=viscosity
             )
-
             if res_phenomen['time'] is None:
                 return
+
+            height_for_simulation = 55
+            time_step = res_phenomen['time']
+
+            if time_step < 12:
+                steps = range(height_for_simulation + 1)[::-1]
+                count_steps = len(steps)
+            else:
+                steps, count_steps = splitting_number(height_for_simulation)
+
+            time_step = time_step / count_steps * 1000000000
+
+            OpenGlWindow(numbers=steps, time=time_step)
+
+    def clear(self):
+        for edit in self.edits.values():
+            edit.setText('')

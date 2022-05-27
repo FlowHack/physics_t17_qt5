@@ -1,7 +1,7 @@
 from os import listdir, system
 from os.path import join as path_join
 
-from .paths import path_to_bin_dir, path_to_ui_dir, path_py
+from .paths import path_py, path_to_bin_dir, path_to_ui_dir
 
 
 def check_ui_in_py(LOGGER):
