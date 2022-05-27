@@ -12,5 +12,5 @@
 ![Изображение окна](./bin/images_for_git/simulation_window.png)
 
 *Окно с симуляцией:*
-![Изображение окна](./bin/images_for_git/experiment_window_before.png)
-![Изображение окна](./bin/images_for_git/experiment_window_after.png)
+![Изображение окна](./bin/images_for_git/simulation_before.png)
+![Изображение окна](./bin/images_for_git/simulation_after.png)
