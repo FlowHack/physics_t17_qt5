@@ -29,9 +29,17 @@ class App(QtWidgets.QMainWindow):
         self.setWindowIcon(icon)
         self.ui.frame_1.setVisible(False)
 
+        self.logger.info('Установка валидаторов')
         set_validator_double(list(self.edits.values()))
+        self.logger.info('Подключение функций к кнопкам')
         self.ui.btn_simulation.clicked.connect(self.simulation)
         self.ui.btn_restart.clicked.connect(self.clear)
+
+        self.logger.warning('Установка окна по центру')
+        center_point = QtWidgets.QDesktopWidget().availableGeometry().center()
+        qt_rectangle = self.frameGeometry()
+        qt_rectangle.moveCenter(center_point)
+        self.move(qt_rectangle.topLeft())
 
     def simulation(self):
         rad_exp = self.ui.rad_simulation_exp.isChecked()
@@ -77,6 +85,13 @@ class App(QtWidgets.QMainWindow):
 
             if res_experiment is None:
                 return
+            if height > 0.57:
+                MessageBox(
+                    title='Неверное значение',
+                    text='НЕверное значение высоты',
+                    msg='Максимальная высота пробирки, которую можно указать '
+                        '550мм'
+                ).showwarning()
 
             height_for_simulation = int(round(height * 100, 0))
             time_step = res_experiment['avg_time']

@@ -13,25 +13,22 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1289, 600)
+        MainWindow.resize(947, 600)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(1289, 581))
+        MainWindow.setMinimumSize(QtCore.QSize(0, 0))
         MainWindow.setMaximumSize(QtCore.QSize(100000, 100000))
         MainWindow.setFocusPolicy(QtCore.Qt.StrongFocus)
         MainWindow.setStyleSheet("font: 75 italic 12pt \"Times New Roman\";\n"
 "background-color: rgb(230, 230, 230);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.openGL_container = QtWidgets.QOpenGLWidget(self.centralwidget)
-        self.openGL_container.setGeometry(QtCore.QRect(0, 0, 321, 600))
-        self.openGL_container.setObjectName("openGL_container")
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
         self.frame_2.setEnabled(True)
-        self.frame_2.setGeometry(QtCore.QRect(350, 230, 911, 201))
+        self.frame_2.setGeometry(QtCore.QRect(20, 230, 911, 201))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
@@ -205,7 +202,7 @@ class Ui_MainWindow(object):
         self.edit_radius_of_the_ball_average.setReadOnly(True)
         self.edit_radius_of_the_ball_average.setObjectName("edit_radius_of_the_ball_average")
         self.frame_1 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_1.setGeometry(QtCore.QRect(510, 50, 611, 171))
+        self.frame_1.setGeometry(QtCore.QRect(180, 50, 611, 171))
         self.frame_1.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_1.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.frame_1.setObjectName("frame_1")
@@ -259,7 +256,7 @@ class Ui_MainWindow(object):
         self.lab_ball_density.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lab_ball_density.setObjectName("lab_ball_density")
         self.frame_3 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_3.setGeometry(QtCore.QRect(350, 440, 911, 151))
+        self.frame_3.setGeometry(QtCore.QRect(20, 440, 911, 151))
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_3.setObjectName("frame_3")
@@ -327,7 +324,7 @@ class Ui_MainWindow(object):
         self.lab_absolute_values.setWordWrap(False)
         self.lab_absolute_values.setObjectName("lab_absolute_values")
         self.btn_restart = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_restart.setGeometry(QtCore.QRect(1030, 10, 111, 31))
+        self.btn_restart.setGeometry(QtCore.QRect(700, 10, 111, 31))
         self.btn_restart.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(195, 195, 195);\n"
 "    font: 13pt \"Times New Roman\";\n"
@@ -346,16 +343,16 @@ class Ui_MainWindow(object):
         self.btn_restart.setObjectName("btn_restart")
         self.rad_simulation_exp = QtWidgets.QRadioButton(self.centralwidget)
         self.rad_simulation_exp.setEnabled(True)
-        self.rad_simulation_exp.setGeometry(QtCore.QRect(500, 10, 203, 25))
+        self.rad_simulation_exp.setGeometry(QtCore.QRect(170, 10, 203, 25))
         self.rad_simulation_exp.setCheckable(True)
         self.rad_simulation_exp.setChecked(True)
         self.rad_simulation_exp.setObjectName("rad_simulation_exp")
         self.rad_simulation_phenomen = QtWidgets.QRadioButton(self.centralwidget)
         self.rad_simulation_phenomen.setEnabled(True)
-        self.rad_simulation_phenomen.setGeometry(QtCore.QRect(720, 10, 158, 25))
+        self.rad_simulation_phenomen.setGeometry(QtCore.QRect(390, 10, 158, 25))
         self.rad_simulation_phenomen.setObjectName("rad_simulation_phenomen")
         self.btn_simulation = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_simulation.setGeometry(QtCore.QRect(900, 10, 111, 31))
+        self.btn_simulation.setGeometry(QtCore.QRect(570, 10, 111, 31))
         self.btn_simulation.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(195, 195, 195);\n"
 "    font: 13pt \"Times New Roman\";\n"
@@ -385,7 +382,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "CoeffDynamicViscosity"))
         self.lab_experiment_1.setText(_translate("MainWindow", "Эксперемент №1"))
         self.lab_viscosity.setText(_translate("MainWindow", "Вязкость (Па)"))
         self.lab_radius_of_the_ball.setText(_translate("MainWindow", "Радиус шара (м)"))

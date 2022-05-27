@@ -12,6 +12,10 @@ class OpenGlWindow:
         glutInit(sys.argv)
         self.id_window = glutCreateWindow('Simulation of an experiment')
         glutDisplayFunc(self.paintGL)
+        glutInitWindowPosition(
+            int(round((glutGet(GLUT_SCREEN_WIDTH) - 321) / 2, 0)),
+            int(round((glutGet(GLUT_SCREEN_HEIGHT) - 600) / 2, 0))
+        )
 
         self.time = time
         self.numbers = numbers
@@ -25,8 +29,7 @@ class OpenGlWindow:
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         glMatrixMode(GL_PROJECTION)
         glLoadIdentity()
-        x, y, width, height = glGetDoublev(GL_VIEWPORT)
-        gluPerspective(45, width / float(height or 1), .25, 200)
+        gluPerspective(45, 300 / float(600 or 1), .25, 200)
 
         glMatrixMode(GL_MODELVIEW)
         glEnable(GL_BLEND)
@@ -58,9 +61,9 @@ class OpenGlWindow:
                     if perf_counter_ns() - time_start >= need_time:
                         break
             self.iteration += 1
-        else:
-            sleep(1)
-            glutDestroyWindow(self.id_window)
+
+        sleep(1)
+        glutDestroyWindow(self.id_window)
 
     def draw_cylinder(self):
         glColor4f(0.2, 0.3, 1, 0.3)
