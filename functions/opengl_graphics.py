@@ -16,7 +16,6 @@ class OpenGlWindow:
             int(round((glutGet(GLUT_SCREEN_WIDTH) - 321) / 2, 0)),
             int(round((glutGet(GLUT_SCREEN_HEIGHT) - 600) / 2, 0))
         )
-        glutReshapeFunc(self.reshape_window)
 
         self.time = time
         self.numbers = numbers
@@ -80,7 +79,3 @@ class OpenGlWindow:
             glutPostRedisplay()
             glutSwapBuffers()
             sleep(time)
-
-    @staticmethod
-    def reshape_window():
-        glutReshapeWindow(321, 600)
