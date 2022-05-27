@@ -16,6 +16,7 @@ class OpenGlWindow:
             int(round((glutGet(GLUT_SCREEN_WIDTH) - 321) / 2, 0)),
             int(round((glutGet(GLUT_SCREEN_HEIGHT) - 600) / 2, 0))
         )
+        glutReshapeFunc(self.reshape_window)
 
         self.time = time
         self.numbers = numbers
@@ -50,7 +51,7 @@ class OpenGlWindow:
                 self.draw_cylinder()
                 glTranslatef(0, 0, i)
                 glColor4f(0.1, 0.1, 0.1, 1)
-                glutWireSphere(5, 500, 500)
+                glutWireSphere(5, 200, 200)
                 glTranslatef(0, 0, -i)
                 glutSwapBuffers()
                 time_animation = perf_counter_ns() - time_animation_start
@@ -67,7 +68,7 @@ class OpenGlWindow:
 
     def draw_cylinder(self):
         glColor4f(0.2, 0.3, 1, 0.3)
-        glutSolidCylinder(15, 60, 500, 500)
+        glutSolidCylinder(15, 60, 200, 200)
 
     def draw_ball(self, z_index, time):
         print('Зашёл')
@@ -79,3 +80,7 @@ class OpenGlWindow:
             glutPostRedisplay()
             glutSwapBuffers()
             sleep(time)
+
+    @staticmethod
+    def reshape_window():
+        glutReshapeWindow(321, 600)

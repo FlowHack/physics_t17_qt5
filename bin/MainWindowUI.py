@@ -19,8 +19,8 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(0, 0))
-        MainWindow.setMaximumSize(QtCore.QSize(100000, 100000))
+        MainWindow.setMinimumSize(QtCore.QSize(947, 600))
+        MainWindow.setMaximumSize(QtCore.QSize(947, 600))
         MainWindow.setFocusPolicy(QtCore.Qt.StrongFocus)
         MainWindow.setStyleSheet("font: 75 italic 12pt \"Times New Roman\";\n"
 "background-color: rgb(230, 230, 230);")
