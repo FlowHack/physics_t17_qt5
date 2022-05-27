@@ -40,6 +40,30 @@ class App(QtWidgets.QMainWindow):
         qt_rectangle = self.frameGeometry()
         qt_rectangle.moveCenter(center_point)
         self.move(qt_rectangle.topLeft())
+        self.setTabOrder(self.ui.edit_diameter_ball, self.ui.edit_ball_density)
+        self.setTabOrder(
+            self.ui.edit_ball_density, self.ui.edit_liquid_density)
+        self.setTabOrder(
+            self.ui.edit_liquid_density, self.ui.edit_dynamic_viscosity_coeff
+        )
+        self.setTabOrder(
+            self.ui.edit_dynamic_viscosity_coeff, self.ui.edit_abs_ball_density
+        )
+        self.setTabOrder(
+            self.ui.edit_abs_ball_density, self.ui.edit_abs_height
+        )
+        self.setTabOrder(
+            self.ui.edit_abs_height, self.ui.edit_abs_liquid_density
+        )
+        self.setTabOrder(
+            self.ui.edit_abs_liquid_density, self.ui.edit_abs_diameter
+        )
+        self.setTabOrder(self.ui.edit_abs_diameter, self.ui.edit_abs_viscosity)
+        self.setTabOrder(self.ui.btn_simulation, self.ui.btn_restart)
+        self.setTabOrder(self.ui.btn_restart, self.ui.rad_simulation_exp)
+        self.setTabOrder(
+            self.ui.rad_simulation_exp, self.ui.rad_simulation_phenomen
+        )
 
     def simulation(self):
         rad_exp = self.ui.rad_simulation_exp.isChecked()
