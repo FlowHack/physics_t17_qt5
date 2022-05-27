@@ -696,7 +696,7 @@ padding: 7px;</string>
     <widget class="QLabel" name="lab_abs_liquid_density">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>10</x>
        <y>90</y>
        <width>231</width>
        <height>20</height>
@@ -712,7 +712,7 @@ padding: 7px;</string>
     <widget class="QLabel" name="lab_abs_radius">
      <property name="geometry">
       <rect>
-       <x>520</x>
+       <x>530</x>
        <y>90</y>
        <width>61</width>
        <height>20</height>
@@ -728,7 +728,7 @@ padding: 7px;</string>
     <widget class="QLabel" name="lab_abs_ball_density">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>40</x>
        <y>50</y>
        <width>201</width>
        <height>20</height>
@@ -744,7 +744,7 @@ padding: 7px;</string>
     <widget class="QLineEdit" name="edit_abs_height">
      <property name="geometry">
       <rect>
-       <x>590</x>
+       <x>600</x>
        <y>40</y>
        <width>241</width>
        <height>31</height>
@@ -760,7 +760,7 @@ padding: 7px;</string>
     <widget class="QLineEdit" name="edit_abs_ball_density">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>250</x>
        <y>40</y>
        <width>241</width>
        <height>31</height>
@@ -776,7 +776,7 @@ padding: 7px;</string>
     <widget class="QLabel" name="lab_abs_height">
      <property name="geometry">
       <rect>
-       <x>520</x>
+       <x>530</x>
        <y>50</y>
        <width>61</width>
        <height>20</height>
@@ -811,7 +811,7 @@ padding: 7px;</string>
     <widget class="QLineEdit" name="edit_abs_liquid_density">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>250</x>
        <y>80</y>
        <width>241</width>
        <height>31</height>
@@ -827,7 +827,7 @@ padding: 7px;</string>
     <widget class="QLineEdit" name="edit_abs_diameter">
      <property name="geometry">
       <rect>
-       <x>590</x>
+       <x>600</x>
        <y>80</y>
        <width>241</width>
        <height>31</height>

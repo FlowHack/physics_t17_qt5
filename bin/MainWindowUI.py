@@ -265,33 +265,33 @@ class Ui_MainWindow(object):
         self.lab_abs_viscosity.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lab_abs_viscosity.setObjectName("lab_abs_viscosity")
         self.lab_abs_liquid_density = QtWidgets.QLabel(self.frame_3)
-        self.lab_abs_liquid_density.setGeometry(QtCore.QRect(0, 90, 231, 20))
+        self.lab_abs_liquid_density.setGeometry(QtCore.QRect(10, 90, 231, 20))
         self.lab_abs_liquid_density.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lab_abs_liquid_density.setObjectName("lab_abs_liquid_density")
         self.lab_abs_radius = QtWidgets.QLabel(self.frame_3)
-        self.lab_abs_radius.setGeometry(QtCore.QRect(520, 90, 61, 20))
+        self.lab_abs_radius.setGeometry(QtCore.QRect(530, 90, 61, 20))
         self.lab_abs_radius.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lab_abs_radius.setObjectName("lab_abs_radius")
         self.lab_abs_ball_density = QtWidgets.QLabel(self.frame_3)
-        self.lab_abs_ball_density.setGeometry(QtCore.QRect(30, 50, 201, 20))
+        self.lab_abs_ball_density.setGeometry(QtCore.QRect(40, 50, 201, 20))
         self.lab_abs_ball_density.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lab_abs_ball_density.setObjectName("lab_abs_ball_density")
         self.edit_abs_height = QtWidgets.QLineEdit(self.frame_3)
-        self.edit_abs_height.setGeometry(QtCore.QRect(590, 40, 241, 31))
+        self.edit_abs_height.setGeometry(QtCore.QRect(600, 40, 241, 31))
         self.edit_abs_height.setStyleSheet("border-radius: 14px;\n"
 "background-color: rgb(150, 150, 150);\n"
 "color: rgb(240, 240, 240);\n"
 "padding: 7px;")
         self.edit_abs_height.setObjectName("edit_abs_height")
         self.edit_abs_ball_density = QtWidgets.QLineEdit(self.frame_3)
-        self.edit_abs_ball_density.setGeometry(QtCore.QRect(240, 40, 241, 31))
+        self.edit_abs_ball_density.setGeometry(QtCore.QRect(250, 40, 241, 31))
         self.edit_abs_ball_density.setStyleSheet("border-radius: 14px;\n"
 "background-color: rgb(150, 150, 150);\n"
 "color: rgb(240, 240, 240);\n"
 "padding: 7px;")
         self.edit_abs_ball_density.setObjectName("edit_abs_ball_density")
         self.lab_abs_height = QtWidgets.QLabel(self.frame_3)
-        self.lab_abs_height.setGeometry(QtCore.QRect(520, 50, 61, 20))
+        self.lab_abs_height.setGeometry(QtCore.QRect(530, 50, 61, 20))
         self.lab_abs_height.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lab_abs_height.setObjectName("lab_abs_height")
         self.edit_abs_viscosity = QtWidgets.QLineEdit(self.frame_3)
@@ -303,14 +303,14 @@ class Ui_MainWindow(object):
         self.edit_abs_viscosity.setText("")
         self.edit_abs_viscosity.setObjectName("edit_abs_viscosity")
         self.edit_abs_liquid_density = QtWidgets.QLineEdit(self.frame_3)
-        self.edit_abs_liquid_density.setGeometry(QtCore.QRect(240, 80, 241, 31))
+        self.edit_abs_liquid_density.setGeometry(QtCore.QRect(250, 80, 241, 31))
         self.edit_abs_liquid_density.setStyleSheet("border-radius: 14px;\n"
 "background-color: rgb(150, 150, 150);\n"
 "color: rgb(240, 240, 240);\n"
 "padding: 7px;")
         self.edit_abs_liquid_density.setObjectName("edit_abs_liquid_density")
         self.edit_abs_diameter = QtWidgets.QLineEdit(self.frame_3)
-        self.edit_abs_diameter.setGeometry(QtCore.QRect(590, 80, 241, 31))
+        self.edit_abs_diameter.setGeometry(QtCore.QRect(600, 80, 241, 31))
         self.edit_abs_diameter.setStyleSheet("border-radius: 14px;\n"
 "background-color: rgb(150, 150, 150);\n"
 "color: rgb(240, 240, 240);\n"
