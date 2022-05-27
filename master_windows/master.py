@@ -1,4 +1,3 @@
-from multiprocessing.sharedctypes import Value
 from PyQt5 import QtGui, QtWidgets
 from bin.MainWindowUI import Ui_MainWindow
 from bin import MessageBox

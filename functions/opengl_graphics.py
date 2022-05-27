@@ -1,7 +1,6 @@
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
-from PyQt5.QtWidgets import QOpenGLWidget
 from time import sleep, perf_counter_ns
 
 
